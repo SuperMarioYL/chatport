@@ -1,0 +1,56 @@
+{
+  "product": "ChatPort",
+  "version": "0.1.0",
+  "recorded_at": "2026-10-10",
+  "implementation_scope": "v0.1 (m1): ChatGPT export parsing, Context Pack IR, terminal statistics, local placeholder preview page. Context Pack rendering (v0.2/m2), CN adapters (v0.3/m3) and license activation (v0.3/m3) are roadmap items and are NOT part of this run.",
+  "input": {
+    "kind": "synthetic ChatGPT data export (labeled once here: conversations.json only, hand-written fixture, not real user data)",
+    "path": "examples/sample-chatgpt-export.zip",
+    "fixture_source": "examples/sample-export/conversations.json",
+    "rebuild_command": "make example"
+  },
+  "environment": {
+    "go": "go1.24.1 darwin/arm64",
+    "binary": "single file, built via `make build` (-ldflags -X main.version=0.1.0)"
+  },
+  "commands": [
+    {
+      "cmd": "chatport --version",
+      "output": "chatport 0.1.0"
+    },
+    {
+      "cmd": "chatport parse examples/sample-chatgpt-export.zip",
+      "output": "来源        chatgpt 导出\n对话数      4\n消息数      19（其中重复 1 条，渲染时将去重）\n时间跨度    2024-03-09 ~ 2026-08-29\n项目分组    2 个项目，未分组 2 个对话"
+    },
+    {
+      "cmd": "chatport parse examples/sample-chatgpt-export.zip --stats",
+      "output": "来源        chatgpt 导出\n对话数      4\n消息数      19（其中重复 1 条，渲染时将去重）\n时间跨度    2024-03-09 ~ 2026-08-29\n项目分组    2 个项目，未分组 2 个对话\n\n每对话消息数（“重复” = 与其他对话逐字相同、渲染时将去重的消息）:\n  · 【项目】博客重构  — 7 条（重复 1）｜项目｜2024-03-09 ~ 2024-03-09\n  · Project: Outbound Pricing  — 5 条（重复 1）｜Outbound Pricing｜2025-06-01 ~ 2025-06-01\n  · Go pprof 调优排查  — 4 条｜未分组｜2026-01-01 ~ 2026-01-01\n  · 帮我写周报  — 3 条｜未分组｜2026-08-29 ~ 2026-08-29"
+    },
+    {
+      "cmd": "chatport parse examples/sample-chatgpt-export.zip --json | head -30",
+      "output": "{\n  \"meta\": {\n    \"source_app\": \"chatgpt\",\n    \"exported_at\": \"2026-08-29T11:00:00Z\",\n    \"n_conversations\": 4,\n    \"n_messages\": 19\n  },\n  \"threads\": [\n    {\n      \"id\": \"sample-conv-001\",\n      \"title\": \"【项目】博客重构\",\n      \"project_hint\": \"项目\",\n      \"created_at\": \"2024-03-09T16:00:00Z\",\n      \"updated_at\": \"2024-03-09T17:00:00Z\",\n      \"messages\": [\n        { \"role\": \"user\", \"at\": \"2024-03-09T16:00:00Z\", \"text\": \"我想把博客从 WordPress 迁到静态站点，帮我定一个重构计划\" },\n        ...\n      ]\n    }\n  ]\n}"
+    },
+    {
+      "cmd": "chatport open --no-browser  # then: curl -s http://127.0.0.1:8787/api/version",
+      "output": "ChatPort 0.1.0 预览页已启动: http://127.0.0.1:8787 （Ctrl+C 退出）\n{\"name\":\"chatport\",\"version\":\"0.1.0\"}\n# GET / serves the embedded placeholder page (interactive preview ships in v0.2)"
+    },
+    {
+      "cmd": "chatport parse not-an-export.zip  (zip without conversations.json)",
+      "output": "chatport: unrecognized export archive: no conversations.json entry (supported: ChatGPT data export; cn export adapter ships in v0.3 after the Gate-0 audit (see README roadmap))"
+    }
+  ],
+  "verification": {
+    "go_build": "pass",
+    "go_vet": "pass",
+    "go_test": "ok  github.com/SuperMarioYL/chatport/internal/ingest 0.5s / ok github.com/SuperMarioYL/chatport/internal/ir 0.5s",
+    "golden_test": "internal/ingest/chatgpt_test.go covers branch linearization (current_node), hidden system nodes, code parts, tool roles, cross-conversation dedup counting"
+  },
+  "limitations": [
+    "v0.1 only parses ChatGPT data exports (conversations.json); no CN app adapter is wired yet (Gate-0 audit precedes v0.3).",
+    "Rendering (claude-projects-pack.zip) is not implemented in this milestone; --json exposes the Context Pack IR that v0.2 will render.",
+    "Dedup is deterministic exact-match after whitespace normalization (sha256 fingerprint); no semantic dedup.",
+    "Project hints come from title prefixes only (【…】, […], Project:, 项目：/项目:).",
+    "Memory items, custom instructions and files are not part of ChatGPT exports and therefore not part of the Pack.",
+    "The interactive web preview is a placeholder in v0.1; `chatport open` serves version info and usage guidance only."
+  ]
+}

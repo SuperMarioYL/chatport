@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="figtitle figdesc" data-palette="dae656-9ae76a-f6e1ac-cd2b00cf2a9a">
+<title id="figtitle">ChatPort core process</title>
+<desc id="figdesc">Export, parse and stats are implemented in v0.1; pack rendering and upload arrive in v0.2.</desc>
+<style> text { font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; } .mono { font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace; } </style>
+<rect x="0" y="0" width="800" height="400" rx="18" fill="#0a0c0d"/>
+<line x1="0" y1="50" x2="800" y2="50" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="100" x2="800" y2="100" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="150" x2="800" y2="150" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="200" x2="800" y2="200" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="250" x2="800" y2="250" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="300" x2="800" y2="300" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="350" x2="800" y2="350" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="80" y1="0" x2="80" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="160" y1="0" x2="160" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="240" y1="0" x2="240" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="320" y1="0" x2="320" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="400" y1="0" x2="400" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="480" y1="0" x2="480" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="560" y1="0" x2="560" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="640" y1="0" x2="640" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="720" y1="0" x2="720" y2="400" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+
+<text x="36" y="44" font-size="15" font-weight="700" fill="#b0b9a8" letter-spacing="3">CORE PROCESS</text>
+<text x="764" y="44" text-anchor="end" font-size="14" fill="#b0b9a8">each user step stays under a minute</text>
+<circle cx="92" cy="210" r="34" fill="#131717" stroke="#dae656" stroke-width="2.5"  />
+<text x="92" y="218" text-anchor="middle" font-size="24" font-weight="800" fill="#dae656">1</text>
+<text x="92" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf9ee">Export</text>
+<text x="92" y="268" text-anchor="middle" font-size="13" fill="#b0b9a8">official settings page</text>
+<path d="M 138 210 H 198" stroke="#dae656" stroke-width="2" stroke-dasharray="8 6"/>
+<circle cx="244" cy="210" r="34" fill="#131717" stroke="#dae656" stroke-width="2.5"  />
+<text x="244" y="218" text-anchor="middle" font-size="24" font-weight="800" fill="#dae656">2</text>
+<text x="244" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf9ee">chatport parse</text>
+<text x="244" y="268" text-anchor="middle" font-size="13" fill="#b0b9a8">zip -> Context Pack</text>
+<path d="M 290 210 H 350" stroke="#dae656" stroke-width="2" stroke-dasharray="8 6"/>
+<circle cx="396" cy="210" r="34" fill="#131717" stroke="#dae656" stroke-width="2.5"  />
+<text x="396" y="218" text-anchor="middle" font-size="24" font-weight="800" fill="#dae656">3</text>
+<text x="396" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#fdf9ee">Stats</text>
+<text x="396" y="268" text-anchor="middle" font-size="13" fill="#b0b9a8">conversations / span</text>
+<path d="M 442 210 H 502" stroke="#dae656" stroke-width="2" stroke-dasharray="8 6"/>
+<circle cx="548" cy="210" r="34" fill="transparent" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="5 5" />
+<text x="548" y="218" text-anchor="middle" font-size="24" font-weight="800" fill="#b0b9a8">4</text>
+<text x="548" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#b0b9a8">Render pack</text>
+<text x="548" y="268" text-anchor="middle" font-size="13" fill="#b0b9a8">grouped · deduped</text>
+<path d="M 594 210 H 654" stroke="#b0b9a8" stroke-width="2" stroke-dasharray="3 7" opacity="0.5"/>
+<circle cx="700" cy="210" r="34" fill="transparent" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="5 5" />
+<text x="700" y="218" text-anchor="middle" font-size="24" font-weight="800" fill="#b0b9a8">5</text>
+<text x="700" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#b0b9a8">Upload</text>
+<text x="700" y="268" text-anchor="middle" font-size="13" fill="#b0b9a8">Claude Projects v0.2</text>
+<rect x="100" y="300" width="600" height="1.5" fill="#383c1d"/>
+<text x="400" y="336" text-anchor="middle" font-size="15" fill="#9ae76a">v0.1 implements steps 1–3 today</text>
+<text x="400" y="360" text-anchor="middle" font-size="13" fill="#b0b9a8">waiting for the export email is the only slow step — and it happens offline</text>
+</svg>

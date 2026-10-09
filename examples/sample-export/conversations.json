@@ -1,0 +1,65 @@
+[
+  {
+    "id": "sample-conv-001",
+    "conversation_id": "sample-conv-001",
+    "title": "【项目】博客重构",
+    "create_time": 1710000000.0,
+    "update_time": 1710003600.0,
+    "current_node": "n7",
+    "mapping": {
+      "root": {"id": "root", "message": null, "parent": null, "children": ["n1"]},
+      "n1": {"id": "n1", "message": {"id": "m1", "author": {"role": "user"}, "create_time": 1710000000.0, "content": {"content_type": "text", "parts": ["我想把博客从 WordPress 迁到静态站点，帮我定一个重构计划"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "root", "children": ["n2"]},
+      "n2": {"id": "n2", "message": {"id": "m2", "author": {"role": "assistant"}, "create_time": 1710000060.0, "content": {"content_type": "text", "parts": ["建议分三步：1) 定技术选型（Hugo/Astro）；2) 迁移内容与 URL 结构；3) 部署与 SEO 收尾。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "n1", "children": ["n3"]},
+      "n3": {"id": "n3", "message": {"id": "m3", "author": {"role": "user"}, "create_time": 1710000300.0, "content": {"content_type": "text", "parts": ["选 Astro，URL 保持 /posts/:slug 不变"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "n2", "children": ["n4"]},
+      "n4": {"id": "n4", "message": {"id": "m4", "author": {"role": "assistant"}, "create_time": 1710000360.0, "content": {"content_type": "text", "parts": ["好，迁移映射可以用导出表驱动：旧 slug -> 新 slug 一一对应，404 兜底走 301。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "n3", "children": ["n5"]},
+      "n5": {"id": "n5", "message": {"id": "m5", "author": {"role": "user"}, "create_time": 1710003300.0, "content": {"content_type": "text", "parts": ["把结论整理成 checklist"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "n4", "children": ["n6"]},
+      "n6": {"id": "n6", "message": {"id": "m6", "author": {"role": "assistant"}, "create_time": 1710003360.0, "content": {"content_type": "text", "parts": ["- [x] 选型 Astro\n- [ ] 导出旧文转 MD\n- [ ] 301 映射表\n- [ ] CI 部署预览"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "n5", "children": ["n7"]},
+      "n7": {"id": "n7", "message": {"id": "m7", "author": {"role": "user"}, "create_time": 1710003540.0, "content": {"content_type": "text", "parts": ["下一步先把映射表跑出来"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "n6", "children": []}
+    }
+  },
+  {
+    "id": "sample-conv-002",
+    "conversation_id": "sample-conv-002",
+    "title": "Project: Outbound Pricing",
+    "create_time": 1748736000.0,
+    "update_time": 1748742000.0,
+    "current_node": "k5",
+    "mapping": {
+      "root2": {"id": "root2", "message": null, "parent": null, "children": ["k1"]},
+      "k1": {"id": "k1", "message": {"id": "p1", "author": {"role": "user"}, "create_time": 1748736000.0, "content": {"content_type": "text", "parts": ["出海 SaaS 定价：免费档限制最近 30 天数据是否合理？"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "root2", "children": ["k2"]},
+      "k2": {"id": "k2", "message": {"id": "p2", "author": {"role": "assistant"}, "create_time": 1748736060.0, "content": {"content_type": "text", "parts": ["合理。30 天免费档降低首用门槛，历史数据迁移是明确的付费点，参考国内一次性买断的迁移工具惯例。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "k1", "children": ["k3"]},
+      "k3": {"id": "k3", "message": {"id": "p3", "author": {"role": "user"}, "create_time": 1748739000.0, "content": {"content_type": "text", "parts": ["¥68 买断 vs 订阅制，哪个更适合独立开发者？"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "k2", "children": ["k4"]},
+      "k4": {"id": "k4", "message": {"id": "p4", "author": {"role": "assistant"}, "create_time": 1748739060.0, "content": {"content_type": "text", "parts": ["低频高价值场景选买断：无需账号与续费沟通，与本地工具的信任叙事一致。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "k3", "children": ["k5"]},
+      "k5": {"id": "k5", "message": {"id": "p5", "author": {"role": "user"}, "create_time": 1748741400.0, "content": {"content_type": "text", "parts": ["把结论整理成 checklist"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "k4", "children": []}
+    }
+  },
+  {
+    "id": "sample-conv-003",
+    "conversation_id": "sample-conv-003",
+    "title": "Go pprof 调优排查",
+    "create_time": 1767225600.0,
+    "update_time": 1767229200.0,
+    "current_node": "j4",
+    "mapping": {
+      "root3": {"id": "root3", "message": null, "parent": null, "children": ["j1"]},
+      "j1": {"id": "j1", "message": {"id": "g1", "author": {"role": "user"}, "create_time": 1767225600.0, "content": {"content_type": "text", "parts": ["服务 RSS 涨到 2G 不下来，pprof heap 显示 inuse_space 都在 bytes.Buffer"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "root3", "children": ["j2"]},
+      "j2": {"id": "j2", "message": {"id": "g2", "author": {"role": "assistant"}, "create_time": 1767225660.0, "content": {"content_type": "text", "parts": ["典型的 buffer 未 Reset 回池：用 sync.Pool 包一层，并在 defer 里 Reset，GOGC 调整只是止痛。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "j1", "children": ["j3"]},
+      "j3": {"id": "j3", "message": {"id": "g3", "author": {"role": "user"}, "create_time": 1767228900.0, "content": {"content_type": "text", "parts": ["改完压测 RSS 稳定在 300M，多谢！"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "j2", "children": ["j4"]},
+      "j4": {"id": "j4", "message": {"id": "g4", "author": {"role": "assistant"}, "create_time": 1767228960.0, "content": {"content_type": "text", "parts": ["把这次排查记录归档，下次同类问题直接复用。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "j3", "children": []}
+    }
+  },
+  {
+    "id": "sample-conv-004",
+    "conversation_id": "sample-conv-004",
+    "title": "帮我写周报",
+    "create_time": 1788000000.0,
+    "update_time": 1788001200.0,
+    "current_node": "h3",
+    "mapping": {
+      "root4": {"id": "root4", "message": null, "parent": null, "children": ["h1"]},
+      "h1": {"id": "h1", "message": {"id": "w1", "author": {"role": "user"}, "create_time": 1788000000.0, "content": {"content_type": "text", "parts": ["根据这周动态写周报：博客重构完成迁移，定价页上线 A 实验"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "root4", "children": ["h2"]},
+      "h2": {"id": "h2", "message": {"id": "w2", "author": {"role": "assistant"}, "create_time": 1788000060.0, "content": {"content_type": "text", "parts": ["本周进展：1) 博客迁移上线，301 映射零报错；2) 定价页 A 实验开始，观察 7 天。"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "h1", "children": ["h3"]},
+      "h3": {"id": "h3", "message": {"id": "w3", "author": {"role": "user"}, "create_time": 1788001200.0, "content": {"content_type": "text", "parts": ["可以，语气再正式一点"]}, "metadata": {}, "status": "finished_successfully"}, "parent": "h2", "children": []}
+    }
+  }
+]

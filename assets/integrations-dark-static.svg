@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="figtitle figdesc" data-palette="dae656-9ae76a-f6e1ac-cd2b00cf2a9a">
+<title id="figtitle">ChatPort capabilities and integration map</title>
+<desc id="figdesc">ChatGPT exports and terminal statistics are wired; Claude Projects rendering and CN adapters are on the roadmap.</desc>
+<style> text { font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; } .mono { font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace; } </style>
+<rect x="0" y="0" width="800" height="470" rx="18" fill="#0a0c0d"/>
+<line x1="0" y1="58.75" x2="800" y2="58.75" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="117.5" x2="800" y2="117.5" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="176.25" x2="800" y2="176.25" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="235" x2="800" y2="235" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="293.75" x2="800" y2="293.75" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="352.5" x2="800" y2="352.5" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="411.25" x2="800" y2="411.25" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="80" y1="0" x2="80" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="160" y1="0" x2="160" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="240" y1="0" x2="240" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="320" y1="0" x2="320" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="400" y1="0" x2="400" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="480" y1="0" x2="480" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="560" y1="0" x2="560" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="640" y1="0" x2="640" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="720" y1="0" x2="720" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+
+<text x="36" y="44" font-size="15" font-weight="700" fill="#b0b9a8" letter-spacing="3">CAPABILITIES &amp; INTEGRATION</text>
+<text x="764" y="44" text-anchor="end" font-size="14" fill="#b0b9a8">solid = shipped · dashed = roadmap</text>
+<ellipse cx="400" cy="250" rx="270" ry="150" fill="none" stroke="#383c1d" stroke-width="1" opacity="0.6"/>
+<ellipse cx="400" cy="250" rx="180" ry="100" fill="none" stroke="#383c1d" stroke-width="1" opacity="0.4"/>
+<g filter="url(#s1)">
+<circle cx="400" cy="250" r="74" fill="#131717" stroke="#dae656" stroke-width="2.5"/>
+<circle cx="400" cy="250" r="74" fill="none" stroke="#dae656" stroke-width="8" opacity="0.18" filter="url(#g2)"/>
+</g>
+<text x="400" y="238" text-anchor="middle" font-size="14" fill="#b0b9a8" letter-spacing="2">ONE IR</text>
+<text x="400" y="264" text-anchor="middle" font-size="21" font-weight="800" fill="#dae656">Context Pack</text>
+<text x="400" y="288" text-anchor="middle" font-size="12" class="mono" fill="#b0b9a8">dedup · groups · budget</text>
+
+<path d="M 308 250 H 208" stroke="#dae656" stroke-width="2" stroke-dasharray="8 6" fill="none"/>
+<path d="M 208 250 h -6" stroke="#dae656" stroke-width="2"/>
+
+<rect x="26" y="138" width="184" height="44" rx="10" fill="#131717" stroke="#dae656" stroke-width="1.5" />
+<text x="118" y="158" text-anchor="middle" font-size="16" font-weight="600" fill="#fdf9ee">ChatGPT 导出</text>
+<text x="118" y="176" text-anchor="middle" font-size="11.5" fill="#9ae76a">conversations.json · wired v0.1</text>
+<path d="M 330 190 Q 260 160 150 136" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="3 7" opacity="0.45" fill="none"/>
+
+<rect x="16" y="334" width="268" height="44" rx="10" fill="#131717" stroke="#383c1d" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="150" y="354" text-anchor="middle" font-size="16" font-weight="600" fill="#b0b9a8">豆包 / Kimi / 元宝 / DeepSeek</text>
+<text x="150" y="372" text-anchor="middle" font-size="11.5" fill="#b0b9a8">one pair · v0.3 · gated by audit</text>
+<path d="M 336 300 Q 250 330 205 344" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="3 7" opacity="0.45" fill="none"/>
+
+<path d="M 492 250 H 596" stroke="#dae656" stroke-width="2" stroke-dasharray="8 6" fill="none"/>
+
+<rect x="594" y="138" width="184" height="44" rx="10" fill="#131717" stroke="#dae656" stroke-width="1.5" />
+<text x="686" y="158" text-anchor="middle" font-size="16" font-weight="600" fill="#fdf9ee">Terminal stats</text>
+<text x="686" y="176" text-anchor="middle" font-size="11.5" fill="#9ae76a">parse --stats · wired v0.1</text>
+<path d="M 470 196 Q 560 150 644 136" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="3 7" opacity="0.45" fill="none"/>
+
+<rect x="594" y="334" width="184" height="44" rx="10" fill="#131717" stroke="#383c1d" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="686" y="354" text-anchor="middle" font-size="16" font-weight="600" fill="#b0b9a8">Claude Projects</text>
+<text x="686" y="372" text-anchor="middle" font-size="11.5" fill="#b0b9a8">markdown pack · v0.2</text>
+<path d="M 470 300 Q 570 336 630 348" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="3 7" opacity="0.45" fill="none"/>
+</svg>
