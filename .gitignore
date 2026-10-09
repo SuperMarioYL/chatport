@@ -1,0 +1,20 @@
+# build output
+/chatport
+/dist/
+
+# palette + site config used by local asset generation
+/web/
+
+# local scratch
+_build_ctx.json
+PUBLISH_BLOCKED.md
+BUILD_SETUP_NEXT_STEPS.md
+.spawn.*
+.builder_*
+.build_metadata*
+.stage_*
+.claude/
+CLAUDE.md
+
+# os / editor
+.DS_Store
