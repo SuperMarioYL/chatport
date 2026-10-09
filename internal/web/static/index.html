@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ChatPort 本地预览</title>
+<style>
+  :root {
+    --bg: #0a0c0d;
+    --panel: #131717;
+    --ink: #fdf9ee;
+    --muted: #b0b9a8;
+    --line: #383c1d;
+    --primary: #dae656;
+    --secondary: #9ae76a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    max-width: 640px;
+    margin: 24px;
+    padding: 40px 44px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  h1 {
+    margin: 0 0 4px;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+  }
+  h1 .accent { color: var(--primary); }
+  .meta {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+  .notice {
+    border-left: 3px solid var(--primary);
+    padding: 10px 16px;
+    margin: 0 0 22px;
+    background: rgba(218, 230, 86, 0.06);
+    border-radius: 0 8px 8px 0;
+  }
+  code {
+    background: rgba(218, 230, 86, 0.12);
+    color: var(--primary);
+    padding: 1px 7px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  ol { margin: 0; padding-left: 22px; }
+  li { margin: 8px 0; }
+  a { color: var(--secondary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 26px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1>ChatPort <span class="accent">本地预览</span></h1>
+    <p class="meta">单二进制 · 纯本地 · 不上传任何数据 · <span id="version">…</span></p>
+    <div class="notice">
+      拖入导出 zip、勾选对话、生成上下文包的交互预览将在 <strong>v0.2</strong> 提供。
+      当前版本（v0.1）请先在终端完成解析与统计。
+    </div>
+    <ol>
+      <li>在 ChatGPT 设置页执行 <em>设置 → 数据控制 → 导出数据</em>，等导出邮件并下载 zip；</li>
+      <li>运行 <code>chatport parse 你的导出.zip --stats</code> 查看对话数、时间跨度与每对话消息数；</li>
+      <li>关注仓库获取 v0.2：本地预览页 + 一键下载 Claude Projects 上下文包。</li>
+    </ol>
+    <footer>
+      上下文包渲染（v0.2）与国产 App 适配（v0.3）见 README 路线图。
+      <a href="https://github.com/SuperMarioYL/chatport" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
