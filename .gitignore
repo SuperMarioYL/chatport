@@ -2,9 +2,6 @@
 /chatport
 /dist/
 
-# palette + site config used by local asset generation
-/web/
-
 # local scratch
 _build_ctx.json
 PUBLISH_BLOCKED.md

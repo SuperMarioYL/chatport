@@ -1,0 +1,348 @@
+{
+  "schema": 3,
+  "name": "ChatPort",
+  "github": "https://github.com/SuperMarioYL/chatport",
+  "lang": {
+    "primary": "zh",
+    "toggle": true
+  },
+  "palette": "auto",
+  "hero": {
+    "eyebrow": {
+      "zh": "开源 · 单文件 · 纯本地",
+      "en": "Open source · single binary · fully local"
+    },
+    "headline": {
+      "zh": "把对话记录\n搬进下一个 Agent",
+      "en": "Move your history\ninto your next Agent"
+    },
+    "sub": {
+      "zh": "ChatPort 读入 ChatGPT 官方导出 zip，归一化为统一的 Context Pack 中间表示并输出统计——单文件二进制、全程本地、零模型调用。上下文包渲染随 v0.2 落地；本站只展示已实现的能力。",
+      "en": "ChatPort reads the official ChatGPT export zip, normalizes it into one Context Pack intermediate representation, and prints statistics — a single binary, fully local, zero model calls. Pack rendering lands in v0.2; this site only shows what is already implemented."
+    },
+    "href": "#quickstart",
+    "cta": {
+      "zh": "开始使用",
+      "en": "Get started"
+    },
+    "ctaGithub": {
+      "zh": "在 GitHub 查看",
+      "en": "View on GitHub"
+    }
+  },
+  "advantages": [
+    {
+      "title": {
+        "zh": "官方导出，直接读",
+        "en": "Reads the official export"
+      },
+      "body": {
+        "zh": "不需要插件或抓取：你从 ChatGPT 设置页导出的 zip，chatport parse 直接读入，立刻给出对话数、消息数、时间跨度与项目分组统计。",
+        "en": "No plugins, no scraping: hand chatport parse the zip you exported from ChatGPT's settings page, and it immediately reports conversations, messages, time span and project grouping."
+      },
+      "chips": [
+        "› chatport parse export.zip --stats",
+        "› 4 conversations · 19 messages — sample export"
+      ]
+    },
+    {
+      "title": {
+        "zh": "一个 Context Pack IR",
+        "en": "One Context Pack IR"
+      },
+      "body": {
+        "zh": "所有解析器写进同一个 App 无关的中间表示：meta / threads / digest（去重指纹、项目分组、单文件大小预算）。--json 输出的就是 v0.2 渲染器要消费的数据。",
+        "en": "Every parser writes into the same app-agnostic intermediate representation — meta / threads / digest with dedup fingerprints, project groups and a per-file size budget. --json emits exactly what the v0.2 renderer will consume."
+      }
+    },
+    {
+      "title": {
+        "zh": "确定性规则，零模型调用",
+        "en": "Deterministic rules, zero model calls"
+      },
+      "body": {
+        "zh": "去重只认空白归一后逐字相同的消息（sha256 指纹），分组只认标题前缀——可解释、可复现。全程本机运行：无账号、无遥测、无上传。",
+        "en": "Dedup matches only messages identical after whitespace normalization (sha256 fingerprints); grouping reads title prefixes only — explainable and reproducible. Everything runs on your machine: no account, no telemetry, no uploads."
+      }
+    }
+  ],
+  "demo": {
+    "title": {
+      "zh": "真实运行记录",
+      "en": "A real recorded run"
+    },
+    "note": {
+      "zh": "以下命令与输出逐字来自 docs/demo-results.json——2026-10-10 在 go1.24.1 (darwin/arm64) 上对 v0.1.0 的验证记录。样例导出是合成的（非真实用户数据）；你自己的导出 zip 输出同样的统计。",
+      "en": "The commands and outputs below are verbatim from docs/demo-results.json — the verified run of v0.1.0 on go1.24.1 (darwin/arm64), 2026-10-10. The sample export is synthetic (not real user data); your own export zip produces the same statistics."
+    },
+    "source": "https://github.com/SuperMarioYL/chatport/blob/main/docs/demo-results.json",
+    "steps": [
+      {
+        "label": {
+          "zh": "版本",
+          "en": "Version"
+        },
+        "body": {
+          "zh": "单文件二进制，make build 即得",
+          "en": "A single-file binary, straight from make build"
+        },
+        "image": "/assets/demo-version.svg",
+        "command": "chatport --version",
+        "output": "chatport 0.1.0"
+      },
+      {
+        "label": {
+          "zh": "解析概要",
+          "en": "Parse summary"
+        },
+        "body": {
+          "zh": "读入官方导出 zip，立刻给出统计",
+          "en": "Reads the official export zip and prints the statistics"
+        },
+        "image": "/assets/demo-parse.svg",
+        "command": "chatport parse examples/sample-chatgpt-export.zip",
+        "output": "来源        chatgpt 导出\n对话数      4\n消息数      19（其中重复 1 条，渲染时将去重）\n时间跨度    2024-03-09 ~ 2026-08-29\n项目分组    2 个项目，未分组 2 个对话"
+      },
+      {
+        "label": {
+          "zh": "每对话明细",
+          "en": "Per-conversation detail"
+        },
+        "body": {
+          "zh": "--stats 附上每条对话的消息数、重复条数、所属项目与时间范围",
+          "en": "--stats adds per-conversation message counts, duplicates, project and time range"
+        },
+        "image": "/assets/demo-stats.svg",
+        "command": "chatport parse examples/sample-chatgpt-export.zip --stats",
+        "output": "来源        chatgpt 导出\n对话数      4\n消息数      19（其中重复 1 条，渲染时将去重）\n时间跨度    2024-03-09 ~ 2026-08-29\n项目分组    2 个项目，未分组 2 个对话\n\n每对话消息数（“重复” = 与其他对话逐字相同、渲染时将去重的消息）:\n  · 【项目】博客重构  — 7 条（重复 1）｜项目｜2024-03-09 ~ 2024-03-09\n  · Project: Outbound Pricing  — 5 条（重复 1）｜Outbound Pricing｜2025-06-01 ~ 2025-06-01\n  · Go pprof 调优排查  — 4 条｜未分组｜2026-01-01 ~ 2026-01-01\n  · 帮我写周报  — 3 条｜未分组｜2026-08-29 ~ 2026-08-29"
+      },
+      {
+        "label": {
+          "zh": "Context Pack IR",
+          "en": "Context Pack IR"
+        },
+        "body": {
+          "zh": "--json 输出完整中间表示——正是 v0.2 渲染器要消费的数据",
+          "en": "--json emits the full intermediate representation — exactly what the v0.2 renderer will consume"
+        },
+        "image": "/assets/demo-json.svg",
+        "command": "chatport parse examples/sample-chatgpt-export.zip --json | head -30",
+        "output": "{\n  \"meta\": {\n    \"source_app\": \"chatgpt\",\n    \"exported_at\": \"2026-08-29T11:00:00Z\",\n    \"n_conversations\": 4,\n    \"n_messages\": 19\n  },\n  \"threads\": [\n    {\n      \"id\": \"sample-conv-001\",\n      \"title\": \"【项目】博客重构\",\n      \"project_hint\": \"项目\",\n      \"created_at\": \"2024-03-09T16:00:00Z\",\n      \"updated_at\": \"2024-03-09T17:00:00Z\",\n      \"messages\": [\n        { \"role\": \"user\", \"at\": \"2024-03-09T16:00:00Z\", \"text\": \"我想把博客从 WordPress 迁到静态站点，帮我定一个重构计划\" },\n        ...\n      ]\n    }\n  ]\n}"
+      },
+      {
+        "label": {
+          "zh": "本地预览页",
+          "en": "Local preview page"
+        },
+        "body": {
+          "zh": "v0.1 的预览页是占位页：只提供版本信息与使用指引，交互预览在 v0.2",
+          "en": "The v0.1 preview page is a placeholder: version info and usage guidance only; the interactive preview lands in v0.2"
+        },
+        "image": "/assets/demo-open.svg",
+        "command": "chatport open --no-browser  # then: curl -s http://127.0.0.1:8787/api/version",
+        "output": "ChatPort 0.1.0 预览页已启动: http://127.0.0.1:8787 （Ctrl+C 退出）\n{\"name\":\"chatport\",\"version\":\"0.1.0\"}\n# GET / serves the embedded placeholder page (interactive preview ships in v0.2)"
+      },
+      {
+        "label": {
+          "zh": "错误处理",
+          "en": "Guardrails"
+        },
+        "body": {
+          "zh": "对没有 conversations.json 的 zip 明确拒绝，而不是猜",
+          "en": "A zip without conversations.json is rejected explicitly, not guessed at"
+        },
+        "image": "/assets/demo-error.svg",
+        "command": "chatport parse not-an-export.zip",
+        "output": "chatport: unrecognized export archive: no conversations.json entry (supported: ChatGPT data export; cn export adapter ships in v0.3 after the Gate-0 audit (see README roadmap))"
+      }
+    ]
+  },
+  "quickstart": {
+    "title": {
+      "zh": "快速开始",
+      "en": "Quickstart"
+    },
+    "body": {
+      "zh": "需要 Go 1.24+。从源码构建（仓库自带一份合成样例导出）：",
+      "en": "Go 1.24+ required. Build from source (the repo ships a synthetic sample export):"
+    },
+    "steps": [
+      {
+        "title": {
+          "zh": "构建",
+          "en": "Build"
+        },
+        "code": "git clone https://github.com/SuperMarioYL/chatport\ncd chatport\nmake build"
+      },
+      {
+        "title": {
+          "zh": "第一次运行",
+          "en": "First run"
+        },
+        "code": "./chatport parse examples/sample-chatgpt-export.zip --stats"
+      },
+      {
+        "title": {
+          "zh": "搬你自己的历史",
+          "en": "Move your own history"
+        },
+        "code": "./chatport parse 你的导出.zip --stats"
+      },
+      {
+        "title": {
+          "zh": "本地预览页",
+          "en": "Local preview page"
+        },
+        "code": "./chatport open"
+      }
+    ]
+  },
+  "limitations": [
+    {
+      "zh": "v0.1 只解析 ChatGPT 数据导出（conversations.json）；国产 App 适配尚未接入（v0.3，以 Gate-0 审计为前提）。",
+      "en": "v0.1 only parses ChatGPT data exports (conversations.json); no CN app adapter is wired yet (v0.3, behind the Gate-0 audit)."
+    },
+    {
+      "zh": "上下文包渲染（claude-projects-pack.zip）在本里程碑未实现；--json 暴露的 Context Pack IR 是 v0.2 渲染器的输入。",
+      "en": "Rendering (claude-projects-pack.zip) is not implemented in this milestone; the Context Pack IR exposed by --json is what the v0.2 renderer will consume."
+    },
+    {
+      "zh": "去重是空白归一后的确定性精确匹配（sha256 指纹），没有语义去重；项目分组只认标题前缀（【…】、[…]、Project:、项目：）。",
+      "en": "Dedup is deterministic exact-match after whitespace normalization (sha256 fingerprints), no semantic dedup; project grouping reads title prefixes only (【…】, […], Project:, 项目：)."
+    },
+    {
+      "zh": "ChatGPT 导出不含 memory 与自定义指令，包里因此也没有；被编辑掉的回复分支（非 current_node 路径）不保留。",
+      "en": "ChatGPT exports do not include memory or custom instructions, so the pack does not either; edited-away reply branches (anything off the current_node path) are not kept."
+    },
+    {
+      "zh": "v0.1 的网页预览是占位页：chatport open 只提供版本信息与使用指引。",
+      "en": "The v0.1 web preview is a placeholder: chatport open serves version info and usage guidance only."
+    }
+  ],
+  "scene": {
+    "kind": "neon-graph",
+    "fallback": "/assets/scene-dark.svg",
+    "fallbackLight": "/assets/scene-light.svg",
+    "caption": {
+      "zh": "示意场景：导出的对话汇入 Context Pack，再流向下一个 Agent",
+      "en": "Illustrative scene: exports converge into a Context Pack, then flow to the next Agent"
+    }
+  },
+  "story": {
+    "intro": {
+      "title": {
+        "zh": "为什么搬家这么难",
+        "en": "Why switching hurts"
+      },
+      "body": {
+        "zh": "多助手重度用户的真实工作流：在 ChatGPT 里磨一个项目，拿去 Claude 写方案，再开一个 Coding Agent 把它做出来。每次切换都要复制背景、重新解释决策——因为官方导出是给监管看的数据所有权文件，不是给下一个助手吃的格式，而没有任何助手提供“吃进别人历史”的入口。",
+        "en": "The real workflow of multi-assistant power users: grind a project in ChatGPT, take it to Claude to write it up, then open a Coding Agent to build it. Every switch means copying background and explaining decisions again — because official exports are regulatory data-ownership artifacts, not interoperability formats, and no assistant ships an ingest primitive for another service's history."
+      }
+    },
+    "sections": [
+      {
+        "title": {
+          "zh": "一次搬家，四步",
+          "en": "A move in four steps"
+        },
+        "body": {
+          "zh": "导出（设置页一次点击）→ 解析（parse 一条命令）→ 统计（对话数、消息数、时间跨度、项目分组）→ 上下文包（v0.2：按项目分组、去重、按大小预算分片的 Markdown）。前三步已上线，每步的用户操作都在一分钟内。",
+          "en": "Export (one click in settings) → parse (one command) → stats (conversations, messages, time span, project groups) → context pack (v0.2: project-grouped, deduplicated, size-budgeted Markdown). The first three steps ship today; every user step stays under a minute."
+        },
+        "image": {
+          "light": "/assets/process-light.svg",
+          "dark": "/assets/process-dark.svg",
+          "alt": {
+            "zh": "ChatPort 核心流程：导出、解析与统计已实现，上下文包渲染在 v0.2",
+            "en": "ChatPort core process: export, parse and stats are implemented; pack rendering arrives in v0.2"
+          }
+        }
+      },
+      {
+        "title": {
+          "zh": "一个二进制，三条管线",
+          "en": "One binary, three pipelines"
+        },
+        "body": {
+          "zh": "ingest 把导出归一化进 Context Pack IR，render 与 web 从同一个 IR 读出。第三方依赖仅 cobra，zip、HTTP、静态资源全部走标准库——无数据库、无服务端依赖、不联网。",
+          "en": "ingest normalizes exports into the Context Pack IR; render and web read from the same IR. The only third-party dependency is cobra — zip, HTTP and static assets come from the standard library. No database, no server, no network."
+        },
+        "image": {
+          "light": "/assets/architecture-light.svg",
+          "dark": "/assets/architecture-dark.svg",
+          "alt": {
+            "zh": "架构图：ingest 写入 Context Pack IR，render 与 web 在后续版本读取",
+            "en": "Architecture: ingest writes the Context Pack IR; render and web read it in later milestones"
+          }
+        }
+      },
+      {
+        "title": {
+          "zh": "生态位：转换这一环",
+          "en": "Where it sits: the convert stage"
+        },
+        "body": {
+          "zh": "导出归各助手的官方导出负责，上传归目标 App 已有的项目知识入口负责，ChatPort 只做中间缺失的转换：去重、按项目分组、按预算分片。v0.1 接 ChatGPT 一对，国产适配按 Gate-0 审计结果逐对解锁。",
+          "en": "Official exports handle taking data out; the target app's existing project-knowledge entry handles taking it in. ChatPort owns the missing middle: dedup, project grouping, budget sharding. v0.1 wires one pair (ChatGPT); domestic adapters unlock pair-by-pair behind a Gate-0 audit."
+        },
+        "image": {
+          "light": "/assets/integrations-light.svg",
+          "dark": "/assets/integrations-dark.svg",
+          "alt": {
+            "zh": "能力与接入图：ChatGPT 导出与终端统计已接通，Claude Projects 渲染与国产适配在路线图上",
+            "en": "Capability map: ChatGPT exports and terminal statistics are wired; Claude Projects rendering and CN adapters are on the roadmap"
+          }
+        }
+      }
+    ],
+    "details": [
+      {
+        "title": {
+          "zh": "命令一览",
+          "en": "Command surface"
+        },
+        "body": {
+          "zh": "v0.1 的完整 CLI：parse 读入导出并输出统计（--stats 每对话明细，--json 完整 IR），open 启动 localhost 预览页。",
+          "en": "The complete v0.1 CLI: parse reads an export and prints statistics (--stats per-conversation detail, --json the full IR); open starts the localhost preview page."
+        },
+        "code": "chatport parse export.zip            # 概要统计\nchatport parse export.zip --stats    # 每对话明细\nchatport parse export.zip --json     # 完整 Context Pack IR\nchatport open                        # localhost 预览页（v0.1 占位）"
+      },
+      {
+        "title": {
+          "zh": "设计取舍",
+          "en": "Design tradeoffs"
+        },
+        "body": {
+          "zh": "v0.1 的转换是确定性规则、零模型调用——可解释、可复现，也意味着不聪明；规则会随 v0.2 的渲染需求演进。",
+          "en": "v0.1 conversion is deterministic rules with zero model calls — explainable and reproducible, which also means not clever; the rules evolve with v0.2's rendering needs."
+        }
+      }
+    ]
+  },
+  "cta": {
+    "headline": {
+      "zh": "搬家，而非重来",
+      "en": "Move in, don't start over"
+    },
+    "sub": {
+      "zh": "v0.1 内测期，解析与统计免费使用。欢迎在 Issues 里反馈搬家前后的真实体验。",
+      "en": "v0.1 is in beta — parsing and statistics are free to use. Real move reports in the Issues tracker are very welcome."
+    },
+    "button": {
+      "zh": "在 GitHub 上开始",
+      "en": "Get started on GitHub"
+    }
+  },
+  "footer": {
+    "tag": {
+      "zh": "ChatPort 把官方对话导出，变成下一个 Agent 一口吃下的上下文包。",
+      "en": "ChatPort turns official AI chat exports into a Context Pack your next Agent can ingest."
+    }
+  },
+  "meta": {
+    "content_version": "1",
+    "source_version": "v0.1.0",
+    "visual_profile": "neon-particle",
+    "web_factory_ref": "03e7ec8a416f868b847d13b3023bf7d1215db767"
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" data-palette="dae656-9ae76a-f6e1ac-cd2b00cf2a9a">
+<rect width="760" height="300" rx="14" fill="#131717" stroke="#383c1d"/>
+<rect x="0" y="0" width="760" height="40" rx="14" fill="#131713" stroke="#383c1d"/>
+<circle cx="28" cy="20" r="5.5" fill="#383c1d"/>
+<circle cx="48" cy="20" r="5.5" fill="#383c1d"/>
+<circle cx="68" cy="20" r="5.5" fill="#383c1d"/>
+<text x="380" y="25" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="12" fill="#b0b9a8">chatport — zsh</text>
+  <text x="36" y="78" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#dae656">$ chatport parse examples/sample-chatgpt-export.zip --json | head -30</text>
+  <text x="36" y="99" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">{</text>
+  <text x="36" y="120" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">  "meta": {</text>
+  <text x="36" y="141" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">    "source_app": "chatgpt",</text>
+  <text x="36" y="162" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">    "exported_at": "2026-08-29T11:00:00Z",</text>
+  <text x="36" y="183" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">    "n_conversations": 4,</text>
+  <text x="36" y="204" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">    "n_messages": 19</text>
+  <text x="36" y="225" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">  },</text>
+  <text x="36" y="246" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">  "threads": [ { "id": "sample-conv-001", "title": …</text>
+  <text x="36" y="267" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#b0b9a8" opacity="0.85">  …</text>
+</svg>

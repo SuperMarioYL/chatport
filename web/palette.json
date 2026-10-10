@@ -1,0 +1,38 @@
+{
+  "mode": "auto",
+  "id": "dae656-9ae76a-f6e1ac-cd2b00cf2a9a",
+  "identity": "https://github.com/supermarioyl/chatport",
+  "primary": "#dae656",
+  "secondary": "#9ae76a",
+  "highlight": "#f6e1ac",
+  "dark": {
+    "bg": "#0a0c0d",
+    "panel": "#131717",
+    "code": "#131713",
+    "ink": "#fdf9ee",
+    "muted": "#b0b9a8",
+    "line": "#383c1d",
+    "primary": "#dae656",
+    "secondary": "#9ae76a",
+    "highlight": "#f6e1ac",
+    "accent": "#dae656",
+    "buttonStart": "#757b2e",
+    "buttonEnd": "#57823c",
+    "buttonText": "#ffffff"
+  },
+  "light": {
+    "bg": "#fefef9",
+    "panel": "#fdfef7",
+    "code": "#fcfdf3",
+    "ink": "#252a1c",
+    "muted": "#6d7869",
+    "line": "#f4f7cb",
+    "primary": "#737a2d",
+    "secondary": "#56803b",
+    "highlight": "#7f7459",
+    "accent": "#737a2d",
+    "buttonStart": "#757b2e",
+    "buttonEnd": "#57823c",
+    "buttonText": "#ffffff"
+  }
+}

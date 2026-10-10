@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="figtitle figdesc" data-palette="dae656-9ae76a-f6e1ac-cd2b00cf2a9a">
+<title id="figtitle">ChatPort architecture</title>
+<desc id="figdesc">ingest writes ChatGPT exports into the Context Pack IR; render and web read it in later milestones. One binary, fully local.</desc>
+<style>
+    text { font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; }
+    .mono { font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace; }
+    @keyframes drift { from { transform: translateX(0); opacity: 0; } 18% { opacity: .9; } 82% { opacity: .9; } to { transform: translateX(var(--dx)); opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+    @keyframes flow { to { stroke-dashoffset: -28; } }
+    @keyframes breathe { 0%, 100% { opacity: .35; } 50% { opacity: .8; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+<rect x="0" y="0" width="800" height="470" rx="18" fill="#0a0c0d"/>
+<line x1="0" y1="58.75" x2="800" y2="58.75" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="117.5" x2="800" y2="117.5" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="176.25" x2="800" y2="176.25" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="235" x2="800" y2="235" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="293.75" x2="800" y2="293.75" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="352.5" x2="800" y2="352.5" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="0" y1="411.25" x2="800" y2="411.25" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="80" y1="0" x2="80" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="160" y1="0" x2="160" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="240" y1="0" x2="240" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="320" y1="0" x2="320" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="400" y1="0" x2="400" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="480" y1="0" x2="480" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="560" y1="0" x2="560" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="640" y1="0" x2="640" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+<line x1="720" y1="0" x2="720" y2="470" stroke="#383c1d" stroke-width="1" opacity="0.35"/>
+
+<text x="36" y="44" font-size="15" font-weight="700" fill="#b0b9a8" letter-spacing="3">ARCHITECTURE</text>
+<text x="764" y="44" text-anchor="end" font-size="14" fill="#b0b9a8">one Go binary · 100% local · zero model calls</text>
+<rect x="24" y="62" width="752" height="386" rx="16" fill="none" stroke="#383c1d" stroke-width="1.5" stroke-dasharray="2 4"/>
+<text x="40" y="88" font-size="13" class="mono" fill="#b0b9a8">chatport</text>
+
+<rect x="36" y="104" width="204" height="178" rx="14" fill="#131717" stroke="#383c1d" stroke-width="1.5"/>
+<text x="52" y="132" font-size="16" font-weight="700" fill="#fdf9ee" letter-spacing="1">ingest</text>
+
+<circle cx="62" cy="151" r="4.5" fill="#dae656" style="animation: pulse 2.2s ease-in-out infinite;"/>
+<text x="76" y="156" font-size="15" class="mono" fill="#fdf9ee">chatgpt.go</text>
+<text x="76" y="174" font-size="12" fill="#9ae76a">wired · v0.1</text>
+
+<circle cx="62" cy="197" r="4.5" fill="#b0b9a8" />
+<text x="76" y="202" font-size="15" class="mono" fill="#b0b9a8">cn_export.go</text>
+<text x="76" y="220" font-size="12" fill="#b0b9a8">v0.3 · after Gate-0</text>
+
+<circle cx="62" cy="243" r="4.5" fill="#b0b9a8" />
+<text x="76" y="248" font-size="15" class="mono" fill="#b0b9a8">zip / json -> IR</text>
+<text x="76" y="266" font-size="12" fill="#b0b9a8">stdlib only</text>
+
+<rect x="294" y="104" width="220" height="224" rx="14" fill="#131717" stroke="#dae656" stroke-width="1.5"/>
+<text x="310" y="132" font-size="16" font-weight="700" fill="#dae656" letter-spacing="1">ir · Context Pack</text>
+
+<circle cx="320" cy="151" r="4.5" fill="#dae656" style="animation: pulse 2.2s ease-in-out infinite;"/>
+<text x="334" y="156" font-size="15" class="mono" fill="#fdf9ee">meta</text>
+<text x="334" y="174" font-size="12" fill="#9ae76a">counts / exported_at</text>
+
+<circle cx="320" cy="197" r="4.5" fill="#dae656" style="animation: pulse 2.2s ease-in-out infinite;"/>
+<text x="334" y="202" font-size="15" class="mono" fill="#fdf9ee">threads</text>
+<text x="334" y="220" font-size="12" fill="#9ae76a">role / at / text</text>
+
+<circle cx="320" cy="243" r="4.5" fill="#dae656" style="animation: pulse 2.2s ease-in-out infinite;"/>
+<text x="334" y="248" font-size="15" class="mono" fill="#fdf9ee">digest</text>
+<text x="334" y="266" font-size="12" fill="#9ae76a">dedup / groups</text>
+
+<circle cx="320" cy="289" r="4.5" fill="#dae656" style="animation: pulse 2.2s ease-in-out infinite;"/>
+<text x="334" y="294" font-size="15" class="mono" fill="#fdf9ee">size budget</text>
+<text x="334" y="312" font-size="12" fill="#9ae76a">100 KiB / file</text>
+
+<path d="M 240 176 H 294" stroke="#dae656" stroke-width="2" stroke-dasharray="8 6" style="animation: flow 1.1s linear infinite;"/>
+<text x="267" y="166" text-anchor="middle" font-size="12.5" fill="#9ae76a">writes</text>
+<path d="M 514 176 H 568" stroke="#b0b9a8" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.55"/>
+<text x="541" y="166" text-anchor="middle" font-size="12.5" fill="#b0b9a8">reads v0.2+</text>
+
+<rect x="568" y="104" width="196" height="178" rx="14" fill="#131717" stroke="#383c1d" stroke-width="1.5"/>
+<text x="584" y="132" font-size="16" font-weight="700" fill="#fdf9ee" letter-spacing="1">render</text>
+
+<circle cx="594" cy="151" r="4.5" fill="#b0b9a8" />
+<text x="608" y="156" font-size="15" class="mono" fill="#b0b9a8">claude.go</text>
+<text x="608" y="174" font-size="12" fill="#b0b9a8">v0.2</text>
+
+<circle cx="594" cy="197" r="4.5" fill="#b0b9a8" />
+<text x="608" y="202" font-size="15" class="mono" fill="#b0b9a8">generic.go</text>
+<text x="608" y="220" font-size="12" fill="#b0b9a8">v0.3</text>
+
+<circle cx="594" cy="243" r="4.5" fill="#b0b9a8" />
+<text x="608" y="248" font-size="15" class="mono" fill="#b0b9a8">shards</text>
+<text x="608" y="266" font-size="12" fill="#b0b9a8">per-project</text>
+
+<rect x="568" y="336" width="196" height="96" rx="14" fill="#131717" stroke="#383c1d" stroke-width="1.5"/>
+<text x="584" y="364" font-size="16" font-weight="700" fill="#fdf9ee" letter-spacing="1">web</text>
+<circle cx="594" cy="384" r="4.5" fill="#b0b9a8"/>
+<text x="608" y="389" font-size="14" class="mono" fill="#b0b9a8">localhost · v0.2</text>
+<circle cx="594" cy="412" r="4.5" fill="#b0b9a8"/>
+<text x="608" y="417" font-size="14" class="mono" fill="#b0b9a8">stdlib http · embed</text>
+
+<path d="M 138 282 v 56" stroke="#dae656" stroke-width="2" fill="none" stroke-dasharray="8 6" style="animation: flow 1.1s linear infinite;"/>
+<path d="M 133 342 l 5 9 l 5 -9 Z" fill="#dae656"/>
+<text x="160" y="350" font-size="13.5" class="mono" fill="#fdf9ee">chatport parse --stats / --json</text>
+<text x="160" y="376" font-size="12.5" fill="#9ae76a">v0.1: terminal stats today</text>
+<text x="160" y="398" font-size="12.5" fill="#b0b9a8">v0.2: localhost preview + pack download</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" data-palette="dae656-9ae76a-f6e1ac-cd2b00cf2a9a">
+<rect width="760" height="300" rx="14" fill="#131717" stroke="#383c1d"/>
+<rect x="0" y="0" width="760" height="40" rx="14" fill="#131713" stroke="#383c1d"/>
+<circle cx="28" cy="20" r="5.5" fill="#383c1d"/>
+<circle cx="48" cy="20" r="5.5" fill="#383c1d"/>
+<circle cx="68" cy="20" r="5.5" fill="#383c1d"/>
+<text x="380" y="25" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="12" fill="#b0b9a8">chatport — zsh</text>
+  <text x="36" y="78" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#dae656">$ chatport parse examples/sample-chatgpt-export.zip</text>
+  <text x="36" y="99" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">来源        chatgpt 导出</text>
+  <text x="36" y="120" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">对话数      4</text>
+  <text x="36" y="141" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">消息数      19（其中重复 1 条，渲染时将去重）</text>
+  <text x="36" y="162" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">时间跨度    2024-03-09 ~ 2026-08-29</text>
+  <text x="36" y="183" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#fdf9ee" opacity="1">项目分组    2 个项目，未分组 2 个对话</text>
+</svg>
